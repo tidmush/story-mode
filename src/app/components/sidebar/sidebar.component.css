@@ -1,0 +1,74 @@
+#sidebar {
+   height: 100vh;
+    padding-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+#avatar {
+    height: 10rem;
+    margin: 0 auto 1vh;
+    display: block;
+    border-radius: 6rem;
+    box-shadow: 1px 1px 1rem #050517;
+}
+
+#user-details h2, #user-details h3 {
+    margin: 0;
+    text-align: center;
+}
+
+hr {
+    border-color: transparent;
+    border-bottom-color: #E32D91;
+    border-width: 1px;
+    border-bottom-width: 2px;
+    margin: 4px auto;
+}
+
+hr.short {
+    width: 50%;
+}
+
+hr.long {
+    width: 85%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    overflow: auto;
+    margin: 0;
+    margin: 3vh 0 0;
+}
+ul li{ padding: 0.7rem 7.5%;}
+ul li .item {
+    display: flex;   
+    border-bottom: 1px solid #ffffff11;
+}
+
+ul li a:hover {
+    text-decoration: none;
+}
+
+ul li:hover {
+    background-color: #05051712;
+}
+
+ul li .icon {
+    flex: 1;
+}
+
+ul li .project-name {
+    flex: 9;
+}
+
+.add-project{display: flex;}
+.add-project select{flex: 3;margin-left: 1rem;}
+.add-project input{flex: 9;}
+.add-project input, 
+.add-project select {background-color: transparent; border: none; border-bottom: 1px solid #E32D91; outline: none; }
+.add-project select option {background-color: #E32D91;}
+select:focus > option:hover,
+select:focus > option:checked { background: #781049 !important;}

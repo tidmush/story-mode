@@ -1,0 +1,10 @@
+#projectview{height: 100%;}
+.btn-toggle-widgets{margin: 1rem;}
+#widgets{display: flex; padding: 3vh 1vw; max-height: 20rem;box-shadow: 0 0 5px #ccc;}
+#widget-buttons{flex: 1;}
+#widget-buttons button{display: block; text-align: center; margin: 0 0 0.7rem;}
+#widget{flex: 9;max-height: 20rem;overflow: auto;}
+#work-items{padding: 3vh 2vw;}
+#work-items .title{display: flex; justify-content: space-between;}
+#work-items .title h2{margin-bottom: 0;}
+#work-items ul{list-style: none; padding: 0;}

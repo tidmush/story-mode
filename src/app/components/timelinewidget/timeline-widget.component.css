@@ -1,0 +1,5 @@
+table{width: 100%;display: block;overflow: auto; border-collapse: collapse;}
+th{}
+.date{}
+td{padding: 1rem;border-right:1px solid #ddd;}
+.line{height: 2vh;display: inline-block;vertical-align: middle;border-radius: 3px;}

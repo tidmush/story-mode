@@ -1,0 +1,6 @@
+img{height: 5rem;border-radius: 3rem;margin: 0 auto;}
+.line{display: block;}
+ul{padding: 0;}
+li{display: inline-flex;margin:1rem; }
+button:hover{filter: brightness(0.9);}
+input{border: none; border-bottom: 2px solid #19567C; outline: none;width: 28vw;}

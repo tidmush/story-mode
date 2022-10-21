@@ -1,0 +1,40 @@
+<div id="projectview" class="">
+
+    <div class="bg-light-medium">
+        <div id="widgets" *ngIf="widgetsFolded">
+            <div id="widget-buttons">
+                <button class="color-dark btn-icon f5" title="תאריכון" (click)="onSelectWidget('calendar')"><i
+                        class="icon-calendar"></i></button>
+                <button class="color-dark btn-icon f5" title="גאנט" (click)="onSelectWidget('timeline')"><i
+                        class="icon-params"></i></button>
+                <button class="color-dark btn-icon f5" title="קבצים" (click)="onSelectWidget('files')"><i
+                        class="icon-attach"></i></button>
+                <button class="color-dark btn-icon f5" title="תקלות" (click)="onSelectWidget('bugs')"><i
+                        class="icon-fire"></i></button>
+            </div>
+
+            <div id="widget" [ngSwitch]="selectedWidget">
+                <calendar-widget *ngSwitchCase="'calendar'" [events]="calEvents"
+                    (beforeViewRender)="onCalendarInit($event)"></calendar-widget>
+                <timeline-widget *ngSwitchCase="'timeline'" [data]="timelineData"></timeline-widget>
+                <files-widget *ngSwitchCase="'files'"></files-widget>
+                <bugs-widget *ngSwitchCase="'bugs'"></bugs-widget>
+            </div>
+        </div>
+        <button class="btn-toggle-widgets btn-icon color-dark" (click)="widgetsFolded = !widgetsFolded"><i class="f5 icon-beaker"></i>ווידג'טים</button>
+    </div>
+    <div id="work-items">
+        <div class="title">
+            <h2 class="f3l  color-medium-blue">{{project?.name}}</h2>
+            <button class="color-medium-blue btn-icon" (click)="addWorkItem()"><span class=" f1b">+</span></button>
+        </div>
+        <div class="items">
+            <ul>
+                <li *ngFor="let item of project?.workItems">
+                    <work-item [workItem]="item" [projectId]="project?.id" (progression)="updateProgress()"></work-item>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

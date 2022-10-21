@@ -1,0 +1,37 @@
+<div class="main-strip strip">
+  <div class="grip" (dblclick)="todoFolded = !todoFolded"></div>
+  <div class="bg-light-blue cell description">
+    <h3 *ngIf="!editTitle" class="f5b color-dark-blue" (click)="editTitle = true">{{workItem.title}}</h3>
+    <input *ngIf="editTitle" class="f5b form-control title" type="text" [(ngModel)]="workItem.title"
+      (blur)="setText()" />
+    <p *ngIf="!editDescription" class="f7 color-dark" (click)="editDescription = true">{{workItem.description}}</p>
+    <textarea *ngIf="editDescription" class="f7 form-control desc" [(ngModel)]="workItem.description"
+      (blur)="setText()"></textarea>
+  </div>
+  <div class="bg-light-blue cell owner flex" title="בטיפול">
+    <button *ngIf="!isUserPickerOpened" class="btn-empty f6"
+      (click)="isUserPickerOpened = true">{{workItem.owner}}</button>
+    <div *ngIf="isUserPickerOpened" class="bg-light-blue float">
+      <user-picker (userSelected)="setUser($event)"></user-picker>
+    </div>
+  </div>
+  <div class="cell status flex" [style.backgroundColor]="workItem.status | statusColor" title="סטטוס משימה">
+    <button class="f6 btn-empty" (click)="setNextStatus()">{{workItem.status | status}}</button>
+  </div>
+  <div class="bg-light-blue cell duedate flex" title="תאריך סיום">
+    <button class="btn-empty f6b" *ngIf="!this.datePickerOptions.isOpened"
+      (click)="datePickerOptions.isOpened = true">{{workItem.dueDate | amDateFormat:'DD/MM/YY'}}</button>
+    <div class="bg-light-blue" [class.float]="this.datePickerOptions.isOpened">
+      <my-date-picker *ngIf="this.datePickerOptions.isOpened" [options]="datePickerOptions"
+        (dateChanged)="setDueDate($event)"></my-date-picker>
+    </div>
+  </div>
+</div>
+<ul class="todos" [class.hidden]="todoFolded">
+  <li *ngFor="let item of workItem.workItems">
+    <todo [todo]="item" [workItemId]="workItem.id" [projectId]="projectId" (todoChanged)="updateTodo()"></todo>
+  </li>
+  <li>
+    <todo [todo]="newTodo" [workItemId]="workItem.id" [projectId]="projectId" (todoChanged)="addTodo($event)"></todo>
+  </li>
+</ul>

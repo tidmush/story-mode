@@ -1,0 +1,21 @@
+.strip{margin-bottom:5px; }
+.main-strip{margin-top: 2rem;}
+.main-strip{ display: flex;justify-content: stretch;}
+.main-strip .grip{flex: 0; border-right: 10px solid #4EA6DC;}
+.cell{margin-left:3px;flex: 1; padding: 0 1vw;}
+.cell.flex{display: flex;justify-content: center; align-items: center;}
+.cell.description{flex: 4;}
+.cell.description h3{margin: 1rem 0;}
+.cell.owner{position: relative;}
+.cell.owner .float{width: 35vw;top: -5rem;min-height: 40vh;}
+.cell.duedate{flex: 2;padding: 0.5rem;}
+.cell:last-child{margin-left: 0;}
+.form-control{width: 100%; border: none; border-bottom: 1px solid #DCEDF8; outline: none; background-color: transparent;}
+.form-control.title{margin: 1rem 0 0;}
+.form-control.desc{margin: 0 0 0.3rem;}
+.float{position: absolute; padding: 1rem;z-index: 1;}
+.todos{list-style: none;}
+:host ::ng-deep .icon-mydpleft:before{content: "❮" !important;}
+:host ::ng-deep .icon-mydpright:before{content: "❯" !important;}
+:host ::ng-deep .icon-mydptoday:before{content: "⚬" !important;}
+:host ::ng-deep .mydp .highlight{color: #4EA6DC;}

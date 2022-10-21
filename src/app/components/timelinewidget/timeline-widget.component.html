@@ -1,0 +1,11 @@
+<table class="grid f3l">
+    <tr>
+        <th></th>
+        <th *ngFor="let line of lines"><span class="date f7">{{line}}</span></th>
+    </tr>
+    <tr *ngFor="let event of events">
+        <td>{{event.name}}</td>
+        <td *ngFor="let line of lines">           
+        </td>
+    </tr>
+</table>

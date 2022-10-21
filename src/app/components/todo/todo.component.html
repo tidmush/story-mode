@@ -1,0 +1,10 @@
+    <div class="todo-strip strip" [class.add-todo]="!todo.id">
+      <div class="grip" [class.cell]="!todo.id"></div>
+      <div class="cell description">
+        <p *ngIf="todo.id" class="f7 color-dark">{{todo.description}}</p>
+        <textarea *ngIf="!todo.id" class="form-control f7" [(ngModel)]="todo.description"></textarea>
+      </div>
+      <div class="cell status flex dark-hover" [class.bg-dark-blue]="todo.id && todo.done" >
+          <button class="f6 btn-empty" [ngClass]="todo.done ? 'color-light' : 'color-medium-blue'" (click)="saveTodo()">{{todo.id ? todo.done ? 'הסתיים' : 'חדש' : "הוספה"}}</button>
+      </div>
+    </div>

@@ -1,0 +1,15 @@
+<div id="user-picker">
+  <div>
+    <label class="f5" for="searchbox">חיפוש: </label>
+    <input #searchbox class="f5 bg-light-blue" type="search" (input)="filter(searchbox.value)" />
+  </div>
+  <ul class="unstyled-list">
+    <li *ngFor="let user of users$ | async">
+      <button class="btn-empty" (click)="selectUser(user)">
+          <img class="line" src="../../../assets/images/avatar.png" alt="{{user.name}}" />
+          <span class="f5 line">{{user.name}}</span>
+          <span class="f7 line">{{user.team}}</span>
+      </button>
+    </li>
+  </ul>
+</div>

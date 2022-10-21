@@ -1,0 +1,38 @@
+<div id="sidebar">
+    <div id="header">
+        <img id="avatar" src="{{user?.username | avatar}}" alt="avatar">
+        <div id="user-details">
+            <h2 class="f5b color-accent-light">{{user?.name}}</h2>
+            <h3 class="f7b color-accent-light">{{user?.team}}</h3>
+        </div>
+    </div>
+    <hr class="short" />
+    <hr class="long" />
+    <ng-scrollbar compact="true" shown="hover">
+        <ul id="projectlist">
+            <li>
+                <button class="item btn-link f6b color-accent-light underline"
+                    (click)="addProjectIsOpened = !addProjectIsOpened">
+                    <span class="project-name">פרוייקט חדש</span>
+                </button>
+            </li>
+            <li class="add-project" *ngIf="addProjectIsOpened">
+                <select class="f6 color-accent-light" [(ngModel)]="newProject.type">
+                    <option [ngValue]="1">פרוייקט</option>
+                    <option [ngValue]="2">מהדורה</option>
+                    <option [ngValue]="3">תקלה</option>
+                    <option [ngValue]="4">אחר</option>
+                </select>
+                <input class="f6 color-accent-light" [(ngModel)]="newProject.name" />
+                <button class="f6 btn-link color-accent-light underline" (click)="addProject()">הוספה</button>
+            </li>
+            <li *ngFor="let project of projectlist">
+                <a class="item f6 color-accent-light" routerLink="/projects/{{project.id}}" RouterLinkActive="selected">
+                    <i class="icon {{project.type | projectType}}"></i>
+                    <span class="project-name">{{project.name}}</span>
+                    <span class="project-progress">{{project.progress || 0 | number : '1.0-0' }}%</span>
+                </a>
+            </li>
+        </ul>
+    </ng-scrollbar>
+</div>

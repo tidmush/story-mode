@@ -1,0 +1,15 @@
+.strip{margin-bottom:5px; }
+.todo-strip{border-right: 10px solid #4EA6DC; display: flex;justify-content: stretch;}
+.todo-strip.add-todo{border-right:none;}
+.cell{margin-left:3px;flex: 1; padding: 0 1vw;}
+.cell.flex{display: flex;justify-content: center; align-items: center;}
+.cell.description{flex: 4;}
+.cell.description h3{margin: 1rem 0;}
+.cell:last-child{margin-left: 0;}
+.todo-strip .cell{border:1px solid #4EA6DC;}
+
+.form-control{width: 100%; border: none; border-bottom: 1px solid #DCEDF8; padding: 0.8rem 0 0.6rem; outline: none; }
+
+.add-todo .cell{min-height: 2rem;}
+.add-todo .todo-strip{border-right: none;}
+.add-todo .cell.grip{flex: 0;padding: 0 5px; min-height: 40px;}
